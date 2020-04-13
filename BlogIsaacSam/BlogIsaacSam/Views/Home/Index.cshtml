@@ -1,8 +1,13 @@
-﻿@{
+﻿@model List<BlogIsaacSam.Models.Data.Post>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
+<h2>Posts</h2>
+
 <style>
+
     .postbox {
         border: 2px solid black;
         margin: 2.5%;
@@ -10,18 +15,14 @@
     }
 </style>
 
-<div class="jumbotron">
-    <h1>JANINE'S BLOG</h1>
-    <p class="lead">Welcome to my blog! Here's where you'll find my blog posts.</p>
-</div>
+@Html.ActionLink("Add Post", "AddPost", "Admin");
 
-<!--Use AJAX to load blog posts
-
-    SAMPLE BELOW-->
-
-<div class="postbox row" id="0">
-    <h3>Author</h3>
-    <h2>Title</h2>
-    <p>This is the content of the post. We should configure the most recent post to appear here.</p>
-    <h6>Posted 1/1/11</h6>
-</div>
+@foreach (var item in Model)
+{
+    <div class="postbox" id="@item.PostId">
+        <h3>@item.Author</h3>
+        <h2>@item.Title</h2>
+        <p>@item.Content</p>
+        <h6>Created @item.DateCreated.ToShortDateString() Last Editted @item.DateEditted.ToShortDateString()</h6>
+    </div>
+}
