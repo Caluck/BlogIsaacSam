@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BlogIsaacSam.DAL;
+using BlogIsaacSam.Models.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,11 @@ namespace BlogIsaacSam.Controllers
 {
     public class HomeController : Controller
     {
+        private IPostRepository db = PostRepositoryFactory.Get();
+
         public ActionResult Index()
         {
-            return View();
+            return View(db.GetAll());
         }
 
         public ActionResult About()
