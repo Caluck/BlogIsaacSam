@@ -11,7 +11,7 @@ namespace BlogIsaacSam.Controllers
 {
     public class AdminController : Controller
     {
-        private IPostRepository db = PostRepositoryFactory.Get();
+        private IPostRepository postDb = RepositoryFactory.GetPosts();
 
         [HttpGet]
         public ActionResult AddPost()
@@ -24,7 +24,7 @@ namespace BlogIsaacSam.Controllers
         {
             post.Author = applicationUser.UserName;
             post.DateCreated = DateTime.Today;
-            db.Add(post);
+            postDb.Add(post);
             return RedirectToAction("Index");
         }
     }

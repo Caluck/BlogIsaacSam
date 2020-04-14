@@ -9,11 +9,14 @@ namespace BlogIsaacSam.DAL
 {
     public class BlogContext : DbContext
     {
-        public BlogContext() : base("BlogContext")
+        public BlogContext() : base("name=BlogDBConnectionString")
         {
 
         }
 
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<PostTag> PostTags { get; set; }
     }
 }

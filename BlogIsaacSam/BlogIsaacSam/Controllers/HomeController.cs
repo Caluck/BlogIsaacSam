@@ -12,12 +12,12 @@ namespace BlogIsaacSam.Controllers
 {
     public class HomeController : Controller
     {
-        private IPostRepository db = PostRepositoryFactory.Get();
+        private IPostRepository postDb = RepositoryFactory.GetPosts();
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View(db.GetAll());
+            return View(postDb.GetByCategory(1));
         }
 
         public ActionResult About()
