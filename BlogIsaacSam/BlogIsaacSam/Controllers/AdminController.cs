@@ -12,6 +12,7 @@ namespace BlogIsaacSam.Controllers
     public class AdminController : Controller
     {
         private IPostRepository postDb = RepositoryFactory.GetPosts();
+        private ITagRepository tagDb = RepositoryFactory.GetTags();
 
         [HttpGet]
         public ActionResult AddPost()

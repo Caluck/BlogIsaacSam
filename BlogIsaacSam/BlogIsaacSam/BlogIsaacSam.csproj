@@ -202,10 +202,16 @@
     <Compile Include="Models\Repositories\Category\CategoryRepositoryEF.cs" />
     <Compile Include="Models\Repositories\Category\CategoryRepositoryMock.cs" />
     <Compile Include="Models\Repositories\Category\ICategoryRepository.cs" />
+    <Compile Include="Models\Repositories\PostTag\PostTagRepositoryEF.cs" />
+    <Compile Include="Models\Repositories\PostTag\PostTagRepositoryMock.cs" />
+    <Compile Include="Models\Repositories\PostTag\IPostTagRepository.cs" />
     <Compile Include="Models\Repositories\Post\IPostRepository.cs" />
     <Compile Include="Models\Repositories\Post\PostRepositoryEF.cs" />
     <Compile Include="Models\Repositories\RepositoryFactory.cs" />
     <Compile Include="Models\Repositories\Post\PostRepositoryMock.cs" />
+    <Compile Include="Models\Repositories\Tag\ITagRepository.cs" />
+    <Compile Include="Models\Repositories\Tag\TagRepositoryEF.cs" />
+    <Compile Include="Models\Repositories\Tag\TagRepositoryMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -372,7 +378,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Repositories\Tag\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
