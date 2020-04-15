@@ -17,12 +17,13 @@ namespace BlogIsaacSam.Models.Repositories
 
         public void Add(Post post)
         {
-            throw new NotImplementedException();
+            db.Posts.Add(post);
+            db.SaveChanges();
         }
 
         public Post Get(int postId)
         {
-            throw new NotImplementedException();
+            return db.Posts.FirstOrDefault(i => i.PostId == postId);
         }
 
         public List<Post> GetAll()
@@ -37,7 +38,10 @@ namespace BlogIsaacSam.Models.Repositories
 
         public void Remove(int postId)
         {
-            throw new NotImplementedException();
+            Post post = new Post() { PostId = postId };
+            db.Posts.Attach(post);
+            db.Posts.Remove(post);
+            db.SaveChanges();
         }
 
         public void Update(Post post)

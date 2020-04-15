@@ -12,7 +12,6 @@ namespace BlogIsaacSam.Models.Repositories
         void Add(Post post);
         Post Get(int postId);
         List<Post> GetAll();
-        List<Post> GetByCategory(int categoryId);
         void Remove(int postId);
         void Update(Post post);
     }

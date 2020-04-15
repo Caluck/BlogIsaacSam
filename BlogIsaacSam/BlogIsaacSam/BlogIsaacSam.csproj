@@ -208,6 +208,8 @@
     <Compile Include="Models\Repositories\Post\PostRepositoryEF.cs" />
     <Compile Include="Models\Repositories\RepositoryFactory.cs" />
     <Compile Include="Models\Repositories\Post\PostRepositoryMock.cs" />
+    <Compile Include="Models\Repositories\Tag\ITagRepository.cs" />
+    <Compile Include="Models\Repositories\Tag\TagRepositoryEF.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -375,7 +377,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Repositories\Tag\" />
     <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
