@@ -187,10 +187,12 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="DAL\BlogInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="DAL\BlogContext.cs" />
     <Compile Include="Models\Data\Category.cs" />
@@ -206,6 +208,7 @@
     <Compile Include="Models\Repositories\Post\PostRepositoryEF.cs" />
     <Compile Include="Models\Repositories\RepositoryFactory.cs" />
     <Compile Include="Models\Repositories\Post\PostRepositoryMock.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -373,6 +376,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\Repositories\Tag\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

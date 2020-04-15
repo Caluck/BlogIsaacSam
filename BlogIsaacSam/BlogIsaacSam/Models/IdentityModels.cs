@@ -16,6 +16,15 @@ namespace BlogIsaacSam.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string Role { get; set; }
+    }
+
+    public class ApplicationRole : IdentityRole
+    {
+        public ApplicationRole() : base() { }
+        public ApplicationRole(string roleName) : base(roleName) { }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

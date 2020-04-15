@@ -17,9 +17,10 @@ namespace BlogIsaacSam.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(postDb.GetByCategory(1));
+            return View(postDb.GetAll());
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
