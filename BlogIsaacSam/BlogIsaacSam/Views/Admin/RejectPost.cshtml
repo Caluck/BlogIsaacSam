@@ -1,6 +1,6 @@
 ﻿@model BlogIsaacSam.Models.Data.ViewModelClasses.PostVM
 @{
-    ViewBag.Title = "Approve Post";
+    ViewBag.Title = "Reject Post";
 }
 
 <style>
@@ -11,11 +11,12 @@
     }
 </style>
 
-<h2>Approve Post</h2>
 
-<h3>Approve this post?</h3>
+<h2>Reject Post</h2>
 
-<button type="submit" class="btn btn-sm btn-primary">Approve</button>
+<h3>Reject this post?</h3>
+
+<button type="submit" class="btn btn-sm btn-danger">Delete</button>
 @Html.ActionLink("Cancel", "PendingPosts", "Admin", null, new { @class = "btn btn-sm btn-info" })
 
 <div class="postbox" id="@Model.Post.PostId">

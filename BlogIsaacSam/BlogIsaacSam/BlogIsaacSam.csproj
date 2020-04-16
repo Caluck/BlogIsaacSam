@@ -185,6 +185,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ModeratorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DAL\BlogInitializer.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\Data\PostTag.cs" />
     <Compile Include="Models\Data\Tag.cs" />
     <Compile Include="Models\Data\ViewModelClasses\PostAddVM.cs" />
+    <Compile Include="Models\Data\ViewModelClasses\PostVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Repositories\Category\CategoryRepositoryEF.cs" />
@@ -387,7 +389,7 @@
     <Content Include="Views\Admin\AddPost.cshtml" />
     <Content Include="Views\Admin\PendingPosts.cshtml" />
     <Content Include="Views\Admin\ApprovePost.cshtml" />
-    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\RejectPost.cshtml" />
     <Content Include="Views\Moderator\AddPost.cshtml" />
   </ItemGroup>
   <ItemGroup>

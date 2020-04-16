@@ -1,5 +1,4 @@
-﻿using BlogIsaacSam.Models;
-using BlogIsaacSam.Models.Data;
+﻿using BlogIsaacSam.Models.Data;
 using BlogIsaacSam.Models.Data.ViewModelClasses;
 using BlogIsaacSam.Models.Repositories;
 using System;
@@ -10,7 +9,7 @@ using System.Web.Mvc;
 
 namespace BlogIsaacSam.Controllers
 {
-    public class AdminController : Controller
+    public class ModeratorController : Controller
     {
         private IPostRepository postDb = RepositoryFactory.GetPosts();
         private ITagRepository tagDb = RepositoryFactory.GetTags();
@@ -50,7 +49,7 @@ namespace BlogIsaacSam.Controllers
                 DateCreated = DateTime.Today,
             };
 
-            postDb.Add(post);
+            pendingPostDb.Create(post);
 
             //Check for tag's existance & add to PostTag & Tag accordingly
             foreach (var item in postVM.TagLine.Split(','))
@@ -74,65 +73,6 @@ namespace BlogIsaacSam.Controllers
 
             }
             return RedirectToAction("Index", "Home");
-        }
-
-        [HttpGet]
-        public ActionResult PendingPosts()
-        {
-            List<PostVM> list = new List<PostVM>();
-            foreach (var pendingPost in pendingPostDb.GetAll())
-            {
-                PostVM post = new PostVM { Tags = new List<Tag>(), Post = pendingPost };
-                post.Category = categoryDb.Get(pendingPost.CategoryId);
-                foreach (var postTag in postTagDb.GetAllByPost(pendingPost.PostId))
-                {
-                    post.Tags.Add(tagDb.Get(postTag.TagId));
-                }
-
-                list.Add(post);
-            }
-            return View(list);
-        }
-
-        [HttpGet]
-        public ActionResult ApprovePost(int id)
-        {
-            Post pendingPost = pendingPostDb.Get(id);
-            PostVM post = new PostVM { Tags = new List<Tag>(), Post = pendingPost };
-            post.Category = categoryDb.Get(pendingPost.CategoryId);
-            foreach (var postTag in postTagDb.GetAllByPost(pendingPost.PostId))
-            {
-                post.Tags.Add(tagDb.Get(postTag.TagId));
-            }
-            return View(post);
-        }
-
-        [HttpPost]
-        public ActionResult ApprovePost(PostVM postVM)
-        {
-            pendingPostDb.Delete(postVM.Post.PostId);
-            postDb.Add(postVM.Post);
-            return RedirectToAction("Index", "Home");
-        }
-
-        [HttpGet]
-        public ActionResult RejectPost(int id)
-        {
-            Post pendingPost = pendingPostDb.Get(id);
-            PostVM post = new PostVM { Tags = new List<Tag>(), Post = pendingPost };
-            post.Category = categoryDb.Get(pendingPost.CategoryId);
-            foreach (var postTag in postTagDb.GetAllByPost(pendingPost.PostId))
-            {
-                post.Tags.Add(tagDb.Get(postTag.TagId));
-            }
-            return View(post);
-        }
-
-        [HttpPost]
-        public ActionResult RejectPost(PostVM postVM)
-        {
-            pendingPostDb.Delete(postVM.Post.PostId);
-            return RedirectToAction("PendingPosts");
         }
     }
 }

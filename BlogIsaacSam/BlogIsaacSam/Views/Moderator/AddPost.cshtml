@@ -1,4 +1,4 @@
-﻿@model BlogIsaacSam.Models.Data.Post
+﻿@model BlogIsaacSam.Models.Data.ViewModelClasses.PostAddVM
 @{
     ViewBag.Title = "Add Post";
 }
@@ -25,10 +25,14 @@
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
+            <label>Category</label>
+            @Html.TextAreaFor(x => x.TagLine, new { @class = "form-control", placeholder = "Separate using commas..." })
             <label>Title</label>
-            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Title" })
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Title", required = "required" })
             <label>Details</label>
             @Html.TextAreaFor(x => x.Content, new { @class = "form-control", placeholder = "What are your thoughts?" })
+            <label>Tags</label>
+            @Html.TextAreaFor(x => x.TagLine, new { @class = "form-control", placeholder = "Separate using commas..." })
         </div>
         <button type="submit" class="btn btn-sm btn-primary">Post</button>
     }

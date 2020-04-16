@@ -1,9 +1,38 @@
-﻿@model List<BlogIsaacSam.Models.Data.Post>
+﻿@model List<BlogIsaacSam.Models.Data.ViewModelClasses.PostVM>
 @{
     ViewBag.Title = "Pending Posts";
 }
 
+<style>
+    .postbox {
+        border: 2px solid black;
+        margin: 2.5%;
+        padding: 2.5%;
+    }
+</style>
+
 <h2>Pending Posts</h2>
 
-
-
+@foreach (var item in Model)
+{
+    <div class="postbox" id="@item.Post.PostId">
+        <h5>@item.Category.Name</h5>
+        <h3>@item.Post.Author</h3>
+        <h2>@item.Post.Title</h2>
+        <p>@item.Post.Content</p>
+        <div class="row">
+            <h4>Tags:</h4>
+            @foreach (var Tag in item.Tags)
+            {
+                <h4>
+                    @Tag.Name,
+                </h4>
+            }
+        </div>
+        <h6>Created @item.Post.DateCreated.ToShortDateString() Last Editted @item.Post.DateEditted.ToShortDateString()</h6>
+        <h4>
+            @Html.ActionLink("Approve", "ApprovePost", "Admin", new { id = item.Post.PostId }, null) |
+            @Html.ActionLink("Reject", "RejectPost", "Admin", new { id = item.Post.PostId }, null)
+        </h4>
+    </div>
+}

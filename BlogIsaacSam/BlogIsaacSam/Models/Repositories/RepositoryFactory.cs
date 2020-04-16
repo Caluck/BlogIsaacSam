@@ -8,6 +8,7 @@ namespace BlogIsaacSam.Models.Repositories
 {
     public class RepositoryFactory
     {
+        private static IPendingPostRepository pendingPostRepository;
         private static ICategoryRepository categoryRepository;
         private static IPostTagRepository postTagRepository;
         private static IPostRepository postRepository;
@@ -20,12 +21,14 @@ namespace BlogIsaacSam.Models.Repositories
             switch(mode)
             {
                 case "EF":
+                    pendingPostRepository = new PendingPostRepositoryEF();
                     categoryRepository = new CategoryRepositoryEF();
                     postTagRepository = new PostTagRepositoryEF();
                     postRepository = new PostRepositoryEF();
                     tagRepository = new TagRepositoryEF();
                     break;
                 case "Mock":
+                    pendingPostRepository = new PendingPostRepositoryMock();
                     categoryRepository = new CategoryRepositoryMock();
                     postTagRepository = new PostTagRepositoryEF();
                     postRepository = new PostRepositoryMock();
@@ -34,6 +37,13 @@ namespace BlogIsaacSam.Models.Repositories
                 default:
                     throw new Exception("The key 'Mode' in Web.config is set incorrectly.");
             }
+        }
+
+        public static IPendingPostRepository GetPendingPosts()
+        {
+            if (pendingPostRepository == null)
+                Create();
+            return pendingPostRepository;
         }
 
         public static ICategoryRepository GetCategories()
