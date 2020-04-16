@@ -23,12 +23,22 @@ namespace BlogIsaacSam.Models.Repositories
 
         public void Add(Post post)
         {
-            throw new NotImplementedException();
+            post.PostId = repository.Max(x => x.PostId) + 1;
+            repository.Add(post);
         }
 
         public Post Get(int postId)
         {
-            throw new NotImplementedException();
+            Post post = new Post();
+            foreach (var item in repository)
+            {
+                if (item.PostId == postId)
+                {
+                    post = item;
+                    break;
+                }
+            }
+            return post;
         }
 
         public List<Post> GetAll()
@@ -38,17 +48,28 @@ namespace BlogIsaacSam.Models.Repositories
 
         public List<Post> GetByCategory(int categoryId)
         {
-            throw new NotImplementedException();
+            List<Post> list = new List<Post>();
+            foreach (var item in repository)
+            {
+                if (item.CategoryId == categoryId)
+                {
+                    list.Add(item);
+                    break;
+                }
+            }
+            return list;
         }
 
         public void Remove(int postId)
         {
-            throw new NotImplementedException();
+            Post post = Get(postId);
+            repository.Remove(post);
         }
 
         public void Update(Post post)
         {
-            throw new NotImplementedException();
+            repository.Remove(Get(post.PostId));
+            repository.Add(post);
         }
     }
 }

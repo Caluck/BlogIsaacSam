@@ -187,10 +187,13 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="DAL\BlogInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004160040536_init.cs" />
+    <Compile Include="Migrations\202004160040536_init.designer.cs">
+      <DependentUpon>202004160040536_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -199,17 +202,25 @@
     <Compile Include="Models\Data\Post.cs" />
     <Compile Include="Models\Data\PostTag.cs" />
     <Compile Include="Models\Data\Tag.cs" />
+    <Compile Include="Models\Data\ViewModelClasses\PostAddVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Repositories\Category\CategoryRepositoryEF.cs" />
     <Compile Include="Models\Repositories\Category\CategoryRepositoryMock.cs" />
     <Compile Include="Models\Repositories\Category\ICategoryRepository.cs" />
+    <Compile Include="Models\Repositories\PendingPost\IPendingPostRepository.cs" />
+    <Compile Include="Models\Repositories\PendingPost\PendingPostRepositoryEF.cs" />
+    <Compile Include="Models\Repositories\PendingPost\PendingPostRepositoryMock.cs" />
+    <Compile Include="Models\Repositories\PostTag\IPostTagRepository.cs" />
+    <Compile Include="Models\Repositories\PostTag\PostTagRepositoryEF.cs" />
+    <Compile Include="Models\Repositories\PostTag\PostTagRepositoryMock.cs" />
     <Compile Include="Models\Repositories\Post\IPostRepository.cs" />
     <Compile Include="Models\Repositories\Post\PostRepositoryEF.cs" />
     <Compile Include="Models\Repositories\RepositoryFactory.cs" />
     <Compile Include="Models\Repositories\Post\PostRepositoryMock.cs" />
     <Compile Include="Models\Repositories\Tag\ITagRepository.cs" />
     <Compile Include="Models\Repositories\Tag\TagRepositoryEF.cs" />
+    <Compile Include="Models\Repositories\Tag\TagRepositoryMock.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -374,10 +385,13 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\AddPost.cshtml" />
+    <Content Include="Views\Admin\PendingPosts.cshtml" />
+    <Content Include="Views\Admin\ApprovePost.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Moderator\AddPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -389,6 +403,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004160040536_init.resx">
+      <DependentUpon>202004160040536_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

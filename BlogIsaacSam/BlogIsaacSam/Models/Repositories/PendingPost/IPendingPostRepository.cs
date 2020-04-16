@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BlogIsaacSam.Models.Repositories
 {
-    public interface ITagRepository
+    public interface IPendingPostRepository
     {
-        void Add(Tag tag);
-        Tag Get(int tagId);
-        List<Tag> GetAll();
-        void Remove(int tagId);
+        List<Post> GetAll();
+        Post Get(int id);
+        void Create(Post post);
+        void Delete(int id);
     }
 }

@@ -24,6 +24,5 @@ namespace BlogIsaacSam.Models.Data
         public DateTime DateCreated { get; set; }
         public DateTime DateEditted { get; set; }
         public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
     }
 }

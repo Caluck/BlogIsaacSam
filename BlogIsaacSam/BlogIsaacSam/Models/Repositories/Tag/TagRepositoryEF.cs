@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BlogIsaacSam.Models.Repositories.Tag
+namespace BlogIsaacSam.Models.Repositories
 {
     public class TagRepositoryEF : ITagRepository
     {

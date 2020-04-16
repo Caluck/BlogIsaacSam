@@ -337,3 +337,5 @@ C:\Users\Mark\Desktop\2020 Repos\WEEK 12\BlogIsaacSam\BlogIsaacSam\BlogIsaacSam\
 C:\Users\Mark\Desktop\2020 Repos\WEEK 12\BlogIsaacSam\BlogIsaacSam\BlogIsaacSam\obj\Debug\BlogIsaacSam.csproj.CopyComplete
 C:\Users\Mark\Desktop\2020 Repos\WEEK 12\BlogIsaacSam\BlogIsaacSam\BlogIsaacSam\obj\Debug\BlogIsaacSam.dll
 C:\Users\Mark\Desktop\2020 Repos\WEEK 12\BlogIsaacSam\BlogIsaacSam\BlogIsaacSam\obj\Debug\BlogIsaacSam.pdb
+C:\Users\Mark\Desktop\2020 Repos\WEEK 12\BlogIsaacSam\BlogIsaacSam\BlogIsaacSam\obj\Debug\BlogIsaacSam.Migrations.init.resources
+C:\Users\Mark\Desktop\2020 Repos\WEEK 12\BlogIsaacSam\BlogIsaacSam\BlogIsaacSam\obj\Debug\BlogIsaacSam.csproj.GenerateResource.cache

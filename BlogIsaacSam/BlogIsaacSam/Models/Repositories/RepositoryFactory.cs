@@ -9,7 +9,9 @@ namespace BlogIsaacSam.Models.Repositories
     public class RepositoryFactory
     {
         private static ICategoryRepository categoryRepository;
+        private static IPostTagRepository postTagRepository;
         private static IPostRepository postRepository;
+        private static ITagRepository tagRepository;
 
         public static void Create()
         {
@@ -19,11 +21,15 @@ namespace BlogIsaacSam.Models.Repositories
             {
                 case "EF":
                     categoryRepository = new CategoryRepositoryEF();
+                    postTagRepository = new PostTagRepositoryEF();
                     postRepository = new PostRepositoryEF();
+                    tagRepository = new TagRepositoryEF();
                     break;
                 case "Mock":
                     categoryRepository = new CategoryRepositoryMock();
+                    postTagRepository = new PostTagRepositoryEF();
                     postRepository = new PostRepositoryMock();
+                    tagRepository = new TagRepositoryMock();
                     break;
                 default:
                     throw new Exception("The key 'Mode' in Web.config is set incorrectly.");
@@ -37,11 +43,25 @@ namespace BlogIsaacSam.Models.Repositories
             return categoryRepository;
         }
 
+        public static IPostTagRepository GetPostTags()
+        {
+            if (postTagRepository == null)
+                Create();
+            return postTagRepository;
+        }
+
         public static IPostRepository GetPosts()
         {
             if (postRepository == null)
                 Create();
             return postRepository;
+        }
+
+        public static ITagRepository GetTags()
+        {
+            if (tagRepository == null)
+                Create();
+            return tagRepository;
         }
     }
 }

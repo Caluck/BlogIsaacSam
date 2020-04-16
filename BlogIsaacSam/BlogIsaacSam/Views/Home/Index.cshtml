@@ -15,7 +15,15 @@
     }
 </style>
 
-@Html.ActionLink("Add Post", "AddPost", "Admin");
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Add Post", "AddPost", "Admin");
+    @Html.ActionLink("Pending Posts", "PendingPosts", "Admin");
+}
+@if (User.IsInRole("Moderator"))
+{
+    @Html.ActionLink("Add Post", "AddPost", "Moderator");
+}
 
 @foreach (var item in Model)
 {
